@@ -1,5 +1,7 @@
 package com.driver.io.entity;
 
+import lombok.*;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -7,7 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "orders")
+
 public class OrderEntity {
 
 	@Id
