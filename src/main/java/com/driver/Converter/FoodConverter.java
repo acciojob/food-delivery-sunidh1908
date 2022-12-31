@@ -20,13 +20,13 @@ public class FoodConverter {
                 foodPrice(foodDto.getFoodPrice()).foodCategory(foodDto.getFoodCategory()).build();
     }
 
-    public static FoodDetailsRequestModel DtoToRequest(FoodDto foodDto){
-        return FoodDetailsRequestModel.builder().foodName(foodDto.getFoodName()).
-                foodPrice(foodDto.getFoodPrice()).foodCategory(foodDto.getFoodCategory()).build();
-    }
-
-    public static FoodDetailsResponse RequestToResponse(FoodDetailsRequestModel foodDetailsRequestModel){
-        return FoodDetailsResponse.builder().foodName(foodDetailsRequestModel.getFoodName()).
-                foodPrice(foodDetailsRequestModel.getFoodPrice()).foodCategory(foodDetailsRequestModel.getFoodCategory()).build();
-    }
+//    public static FoodDetailsRequestModel DtoToRequest(FoodDto foodDto){
+//        return FoodDetailsRequestModel.builder().foodName(foodDto.getFoodName()).
+//                foodPrice(foodDto.getFoodPrice()).foodCategory(foodDto.getFoodCategory()).build();
+//    }
+//
+//    public static FoodDetailsResponse RequestToResponse(FoodDetailsRequestModel foodDetailsRequestModel){
+//        return FoodDetailsResponse.builder().foodName(foodDetailsRequestModel.getFoodName()).
+//                foodPrice(foodDetailsRequestModel.getFoodPrice()).foodCategory(foodDetailsRequestModel.getFoodCategory()).build();
+//    }
 }
