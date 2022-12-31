@@ -2,10 +2,12 @@ package com.driver.service.impl;
 
 import com.driver.Converter.FoodConverter;
 import com.driver.io.entity.FoodEntity;
+import com.driver.io.entity.OrderEntity;
 import com.driver.io.repository.FoodRepository;
 import com.driver.model.response.FoodDetailsResponse;
 import com.driver.service.FoodService;
 import com.driver.shared.dto.FoodDto;
+import com.driver.shared.dto.OrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,15 +40,10 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public FoodDto updateFoodDetails(String foodId, FoodDto foodDetails) throws Exception {
         FoodEntity foodEntity = foodRepository.findByFoodId(foodId);
-        foodEntity.setFoodCategory(foodDetails.getFoodCategory());
-        foodEntity.setFoodId(foodDetails.getFoodId());
-        foodEntity.setFoodPrice(foodDetails.getFoodPrice());
-        foodEntity.setFoodName(foodDetails.getFoodName());
-        foodEntity.setId(foodEntity.getId());
-
-        FoodDto foodDto = FoodDto.builder().foodCategory(foodDetails.getFoodCategory()).foodId(foodDetails.getFoodId()).
-                foodPrice(foodDetails.getFoodPrice()).foodName(foodDetails.getFoodName()).id(foodDetails.getId()).build();
-
+        FoodDto foodDto = foodDetails;
+        foodDto.setId(foodEntity.getId());
+        foodRepository.updateFood(foodEntity.getId(),foodEntity.getFoodId(),foodEntity.getFoodName(),
+                foodEntity.getFoodCategory(),foodEntity.getFoodPrice());
         return foodDto;
     }
 
