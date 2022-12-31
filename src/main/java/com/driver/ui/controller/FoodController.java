@@ -60,7 +60,7 @@ public class FoodController {
 
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteFood(@PathVariable String id) throws Exception{
-		OperationStatusModel statusModel = OperationStatusModel.builder().operationName(String.valueOf(RequestOperationName.DELETE))
+		OperationStatusModel statusModel = OperationStatusModel.builder().operationName(RequestOperationName.DELETE.name())
 				.operationResult(RequestOperationStatus.SUCCESS.name()).build();
 		foodService.deleteFoodItem(id);
 		return statusModel;

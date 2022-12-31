@@ -58,7 +58,7 @@ public class OrderController {
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteOrder(@PathVariable String id) throws Exception {
 		OperationStatusModel operationStatusModel = OperationStatusModel.
-				builder().operationName(String.valueOf(RequestOperationName.DELETE))
+				builder().operationName(RequestOperationName.DELETE.name())
 				.operationResult(RequestOperationStatus.SUCCESS.name()).build();
 		orderService.deleteOrder(id);
 		return operationStatusModel;

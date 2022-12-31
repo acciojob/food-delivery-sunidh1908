@@ -57,7 +57,7 @@ public class UserController {
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteUser(@PathVariable String id) throws Exception{
 		OperationStatusModel operationStatusModel = OperationStatusModel.builder().
-				operationName(String.valueOf(RequestOperationName.DELETE)).
+				operationName(RequestOperationName.DELETE.name()).
 				operationResult(RequestOperationStatus.SUCCESS.name()).build();
 		userService.deleteUser(id);
 		return operationStatusModel;
