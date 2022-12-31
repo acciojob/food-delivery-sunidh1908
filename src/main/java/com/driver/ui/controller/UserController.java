@@ -7,6 +7,7 @@ import com.driver.Converter.UserConverter;
 import com.driver.model.request.UserDetailsRequestModel;
 import com.driver.model.response.OperationStatusModel;
 import com.driver.model.response.RequestOperationName;
+import com.driver.model.response.RequestOperationStatus;
 import com.driver.model.response.UserResponse;
 import com.driver.service.impl.UserServiceImpl;
 import com.driver.shared.dto.UserDto;
@@ -56,7 +57,8 @@ public class UserController {
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteUser(@PathVariable String id) throws Exception{
 		OperationStatusModel operationStatusModel = OperationStatusModel.builder().
-				operationName(String.valueOf(RequestOperationName.DELETE)).build();
+				operationName(String.valueOf(RequestOperationName.DELETE)).
+				operationResult(RequestOperationStatus.SUCCESS.name()).build();
 		userService.deleteUser(id);
 		return operationStatusModel;
 	}

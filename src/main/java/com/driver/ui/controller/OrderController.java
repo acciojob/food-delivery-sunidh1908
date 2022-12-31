@@ -9,6 +9,7 @@ import com.driver.model.request.OrderDetailsRequestModel;
 import com.driver.model.response.OperationStatusModel;
 import com.driver.model.response.OrderDetailsResponse;
 import com.driver.model.response.RequestOperationName;
+import com.driver.model.response.RequestOperationStatus;
 import com.driver.service.impl.OrderServiceImpl;
 import com.driver.shared.dto.OrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,7 @@ public class OrderController {
 	public OperationStatusModel deleteOrder(@PathVariable String id) throws Exception {
 		OperationStatusModel operationStatusModel = OperationStatusModel.
 				builder().operationName(String.valueOf(RequestOperationName.DELETE))
-				.build();
+				.operationResult(RequestOperationStatus.SUCCESS.name()).build();
 		orderService.deleteOrder(id);
 		return operationStatusModel;
 	}

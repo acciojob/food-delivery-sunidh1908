@@ -8,6 +8,7 @@ import com.driver.model.request.FoodDetailsRequestModel;
 import com.driver.model.response.FoodDetailsResponse;
 import com.driver.model.response.OperationStatusModel;
 import com.driver.model.response.RequestOperationName;
+import com.driver.model.response.RequestOperationStatus;
 import com.driver.service.FoodService;
 import com.driver.service.impl.FoodServiceImpl;
 import com.driver.shared.dto.FoodDto;
@@ -59,7 +60,8 @@ public class FoodController {
 
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteFood(@PathVariable String id) throws Exception{
-		OperationStatusModel statusModel = OperationStatusModel.builder().operationName(String.valueOf(RequestOperationName.DELETE)).build();
+		OperationStatusModel statusModel = OperationStatusModel.builder().operationName(String.valueOf(RequestOperationName.DELETE))
+				.operationResult(RequestOperationStatus.SUCCESS.name()).build();
 		foodService.deleteFoodItem(id);
 		return statusModel;
 	}
