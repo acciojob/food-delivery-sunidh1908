@@ -37,8 +37,12 @@ public class FoodController {
 
 	@PostMapping("/create")
 	public FoodDetailsResponse createFood(@RequestBody FoodDetailsRequestModel foodDetails) {
-		//FoodDto foodDto = foodService.createFood(FoodConverter.);
-		return null;
+		FoodDto foodDto=FoodDto.builder().foodName(foodDetails.getFoodName()).foodCategory(foodDetails.getFoodCategory())
+				.foodPrice(foodDetails.getFoodPrice()).build();
+
+		FoodDto foodDto1 = foodService.createFood(foodDto);
+		FoodDetailsResponse foodDetailsResponse = FoodConverter.DtoToResponse(foodDto1);
+		return foodDetailsResponse;
 	}
 
 	@PutMapping(path="/{id}")
